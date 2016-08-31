@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using SandboxCore.Data.Extensions;
 
 namespace SandboxCore.Data
 {
@@ -9,6 +6,7 @@ namespace SandboxCore.Data
     {
         public static void Main(string[] args)
         {
+            new SandboxCoreDbContext().SeedData();
         }
     }
 }

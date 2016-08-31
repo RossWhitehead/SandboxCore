@@ -1,0 +1,17 @@
+﻿@using System.Collections.ObjectModel; 
+@model ReadOnlyCollection<SandboxCore.Web.Models.Project.ProjectSummary>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<ul class="row list-unstyled" id="album-list">
+    @foreach (var project in Model)
+    {
+        <li class="col-lg-2 col-md-2 col-sm-2 col-xs-4 container">
+            <a asp-controller="Project" asp-action="Details" asp-route-id="@project.ProjectId">
+                <h4>@project.ProjectName</h4>
+            </a>
+        </li>
+    }
+</ul>

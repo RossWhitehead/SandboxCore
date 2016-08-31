@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "FluentValidation": "6.4.0-beta3",
+    "MediatR": "2.1.0",
+    "NETStandard.Library": "1.6.0",
+    "SandboxCore.Data": "1.0.0-*"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": [
+        "dnxcore50",
+        "netcoreapp1.0"
+      ]
+    }
+  }
+}

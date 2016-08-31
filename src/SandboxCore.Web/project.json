@@ -1,5 +1,8 @@
-﻿{
+{
+  "version": "1.0.0-*",
+
   "dependencies": {
+    "AutoMapper": "5.1.1",
     "Microsoft.NETCore.App": {
       "version": "1.0.0",
       "type": "platform"
@@ -19,7 +22,15 @@
     "Microsoft.Extensions.Logging.Console": "1.0.0",
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
-    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0"
+    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
+    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": "1.0.0-preview2-final",
+    "StyleCop.Analyzers": "1.0.0",
+    "SandboxCore.Service": "1.0.0-*",
+    "System.Runtime": "4.1.0",
+    "MediatR": "2.1.0",
+    "SandboxCore.Command": "1.0.0-*",
+    "SandboxCore.Query": "1.0.0-*",
+    "Scrutor": "1.8.0"
   },
 
   "tools": {
@@ -32,6 +43,7 @@
     "netcoreapp1.0": {
       "imports": [
         "dotnet5.6",
+        "dnxcore50",
         "portable-net45+win8"
       ]
     }
@@ -51,8 +63,7 @@
   "publishOptions": {
     "include": [
       "wwwroot",
-      "Views",
-      "Areas/**/Views",
+      "Features",
       "appsettings.json",
       "web.config"
     ]

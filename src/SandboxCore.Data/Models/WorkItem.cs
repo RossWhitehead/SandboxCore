@@ -7,27 +7,19 @@ using System.Threading.Tasks;
 
 namespace SandboxCore.Data.Models
 {
-    public class Product
+    public class WorkItem
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ProductId { get; set; }
+        public int WorkItemId { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string ProductName { get; set; }
-
-        [Required]
-        [StringLength(1000)]
-        public string ProductDescription { get; set; }
+        [StringLength(200)]
+        public string Title { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime LastUpdated { get; set; }
 
-        [Required]
-        public int ProductCategoryId { get; set; }
-
         // Navigation
-        public ProductCategory ProjectCategory { get; set; }
+        public Project Project { get; set; }
     }
 }
