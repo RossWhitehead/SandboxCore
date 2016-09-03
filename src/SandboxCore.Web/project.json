@@ -28,9 +28,12 @@
     "SandboxCore.Service": "1.0.0-*",
     "System.Runtime": "4.1.0",
     "MediatR": "2.1.0",
-    "SandboxCore.Command": "1.0.0-*",
-    "SandboxCore.Query": "1.0.0-*",
-    "Scrutor": "1.8.0"
+    "SandboxCore.Commands": "1.0.0-*",
+    "SandboxCore.Queries": "1.0.0-*",
+    "Scrutor": "1.8.0",
+    "SandboxCore.Data": "1.0.0-*",
+    "FluentValidation": "6.4.0-beta3",
+    "FluentValidation.AspNetCore": "6.4.0-beta3"
   },
 
   "tools": {

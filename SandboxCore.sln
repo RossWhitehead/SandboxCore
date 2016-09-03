@@ -20,9 +20,9 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SandboxCore.Web.Tests", "Sa
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SandboxCore.Service", "src\SandboxCore.Service\SandboxCore.Service.xproj", "{4D0BDBB6-EB74-406A-96AC-CBB49CE445F3}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SandboxCore.Command", "src\SandboxCore.Command\SandboxCore.Command.xproj", "{80301FAE-7511-4F1C-9ECD-0AC27CAE502B}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SandboxCore.Commands", "src\SandboxCore.Commands\SandboxCore.Commands.xproj", "{80301FAE-7511-4F1C-9ECD-0AC27CAE502B}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SandboxCore.Query", "src\SandboxCore.Query\SandboxCore.Query.xproj", "{6FC8A879-C777-4E0E-9534-7E07060BCEFE}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SandboxCore.Queries", "src\SandboxCore.Queries\SandboxCore.Queries.xproj", "{6FC8A879-C777-4E0E-9534-7E07060BCEFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

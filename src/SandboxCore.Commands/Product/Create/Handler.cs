@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using FluentValidation;
+﻿using FluentValidation;
 using MediatR;
 using SandboxCore.Data;
 
-namespace SandboxCore.Command.CreateProduct
+namespace SandboxCore.Commands.Product.Create
 {
     public class Handler : RequestHandler<Command>
     {
@@ -24,7 +20,6 @@ namespace SandboxCore.Command.CreateProduct
 
             var product = new Data.Models.Product()
             {
-                ProductId = command.ProductId,
                 ProductName = command.ProductName,
                 ProductDescription = command.ProductDescription,
                 ProductCategoryId = command.ProductCategoryId

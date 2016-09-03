@@ -27,20 +27,20 @@ namespace SandboxCore.Web.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            var vm = mediator.Send(new Query.GetAllProductSummaries.Query());
+            var vm = this.mediator.Send(new Query.GetAllProductSummaries.Query());
             return View("Index", vm);
         }
 
         // GET: /<controller>/Create
         public IActionResult Create()
         {
-            return View("Create");
+            return this.View("Create");
         }
 
         // POST: /<controller>/Create
-        public IActionResult Create(ProductEdit model)
+        public IActionResult Create(Commands.Product.Create.Command command)
         {
-            return View("Create");
+            return this.View("Create");
         }
 
         // GET: /<controller>/Edit/1
@@ -52,7 +52,7 @@ namespace SandboxCore.Web.Controllers
         }
 
         // POST: /<controller>/Create
-        public IActionResult Edit(ProductEdit model)
+        public IActionResult Edit(Commands.Product.Create.Command model)
         {
             if (!ModelState.IsValid)
             {

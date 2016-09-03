@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FluentValidation;
 
-namespace SandboxCore.Command.CreateProduct
+namespace SandboxCore.Commands.Product.Create
 {
     public class Validator : AbstractValidator<Command>
     {

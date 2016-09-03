@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 
-namespace SandboxCore.Query
+namespace SandboxCore.Queries
 {
     public class QueryAutoMapperProfile : Profile
     {

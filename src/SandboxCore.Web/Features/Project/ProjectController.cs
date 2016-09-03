@@ -1,29 +1,30 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using SandboxCore.Service.Models;
-using System.Collections.ObjectModel;
-using SandboxCore.Web.Models.Project;
-using SandboxCore.Service.Services.Interfaces;
+using SandboxCore.Queries;
+using System.Threading.Tasks;
+using SandboxCore.Commands;
 
 namespace SandboxCore.Web.Controllers
 {
     public class ProjectController : Controller
     {
         private IMapper mapper;
-        private IProjectService projectService;
+        private IQueryDispatcher queryDispatcher;
+        private ICommandDispatcher commandDispatcher;
 
-        public ProjectController(IMapper mapper, IProjectService projectService)
+        public ProjectController(IMapper mapper, IQueryDispatcher queryDispatcher, ICommandDispatcher commandDispatcher)
         {
             this.mapper = mapper;
-            this.projectService = projectService;
+            this.queryDispatcher = queryDispatcher;
+            this.commandDispatcher = commandDispatcher;
         }
 
         // GET: /<controller>/
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var vm = mapper.Map<ReadOnlyCollection<ProjectSummary>>(projectService.GetAllProjects());
-            return View("Index", vm);
+            var result = await queryDispatcher.Dispatch<Query.GetAllProjects.Query, Query.GetAllProjects.QueryResult>(new Query.GetAllProjects.Query());
+            return View("Index", null);
         }
 
         // GET: /<controller>/

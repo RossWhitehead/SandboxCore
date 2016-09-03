@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -13,8 +11,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using SandboxCore.Commands;
+using SandboxCore.Commands.Product.Create;
 using SandboxCore.Data;
-using SandboxCore.Query.GetAllProductSummaries;
+using SandboxCore.Queries;
 using SandboxCore.Service;
 using Scrutor;
 
@@ -40,7 +40,8 @@ namespace SandboxCore.Web
             // Add framework services.
             services.AddMvc()
                     .AddViewLocalization()
-                    .AddDataAnnotationsLocalization();
+                    .AddDataAnnotationsLocalization()
+                    .AddFluentValidation(cfg => { cfg.RegisterValidatorsFromAssemblyContaining<ICommand>(); });
 
             // Must be included .AddMvc
             services.Configure<RazorViewEngineOptions>(options =>
@@ -69,6 +70,14 @@ namespace SandboxCore.Web
             // Use Scrutor to scan and register all classes as their implemented interfaces.
             services.Scan(scan => scan
                 .FromAssembliesOf(typeof(IMediator), typeof(Handler))
+                .AddClasses()
+                .AsImplementedInterfaces());
+
+            //
+            // CommandDispatcher and QueryDispatcher
+            //
+            services.Scan(scan => scan
+                .FromAssembliesOf(typeof(IQueryHandler<,>), typeof(ICommandHandler<>))
                 .AddClasses()
                 .AsImplementedInterfaces());
         }

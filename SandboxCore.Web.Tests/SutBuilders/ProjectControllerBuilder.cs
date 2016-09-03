@@ -25,7 +25,8 @@ namespace SandboxCore.Web.Tests.SutBuilders
 
         internal ProjectController Build()
         {
-            return new ProjectController(this.mapper, this.projectService);
+            //return new ProjectController(this.mapper, this.projectService);
+            return null;
         }
     }
 }
