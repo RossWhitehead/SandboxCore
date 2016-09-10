@@ -1,0 +1,20 @@
+﻿@model SandboxCore.Queries.GetAllProductSummaries.Result
+@{
+    ViewBag.Title = "Products";
+}
+<div class="genre">
+    <h3>
+        Products
+    </h3>
+
+    <ul id="product-list" class="list-unstyled">
+        @foreach (var productSummary in Model.ProductSummaries)
+        {
+            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-4 container">
+                <a asp-controller="Product" asp-action="Details" asp-route-id="@productSummary.ProductId">
+                    <h5 class="control-label">@productSummary.ProductName</h5>
+                </a>
+            </li>
+        }
+    </ul>
+</div>

@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Moq;
 using SandboxCore.Service.Services;
-using SandboxCore.Web.Controllers;
+using SandboxCore.Web.Features.Project;
 
 namespace SandboxCore.Web.Tests.SutBuilders
 {

@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using SandboxCore.Queries;
 
-namespace SandboxCore.Query.GetAllProjects
+namespace SandboxCore.Queries.Project
 {
-    public class QueryResult : IQueryResult
+    public class GetAllProjectsQueryResult : IQueryResult
     {
         public IReadOnlyCollection<Project> Projects { get; set; }
 

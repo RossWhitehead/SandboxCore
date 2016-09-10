@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace SandboxCore.Query.GetAllProductSummaries
+namespace SandboxCore.Queries.Product.GetAllProductSummaries
 {
     public class Query : IRequest<Result>
     {

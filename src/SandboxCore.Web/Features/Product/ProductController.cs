@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SandboxCore.Query;
-using SandboxCore.Service.Models;
-using SandboxCore.Service.Services.Interfaces;
-using SandboxCore.Web.Models.Product;
 
-namespace SandboxCore.Web.Controllers
+namespace SandboxCore.Web.Features.Product
 {
     public class ProductController : Controller
     {
@@ -27,28 +19,39 @@ namespace SandboxCore.Web.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            var vm = this.mediator.Send(new Query.GetAllProductSummaries.Query());
-            return View("Index", vm);
+            var result = this.mediator.Send(new Queries.Product.GetAllProductSummaries.Query());
+            return View("Index", result);
         }
 
         // GET: /<controller>/Create
         public IActionResult Create()
         {
-            return this.View("Create");
+            return this.View("Create", new Commands.Product.Create.Command());
         }
 
         // POST: /<controller>/Create
         public IActionResult Create(Commands.Product.Create.Command command)
         {
+            if (!ModelState.IsValid)
+            {
+                return this.View("Create", command);
+            }
+
+
             return this.View("Create");
         }
 
         // GET: /<controller>/Edit/1
         public IActionResult Edit(int id)
         {
-            var product = mediator.Send(new Query.GetProduct.Query() { ProductId = id });
-            var vm = mapper.Map<ProductView>(product);
-            return View("Edit", vm);
+            //var product = mediator.Send(new Query.GetProduct.Query() { ProductId = id });
+            //var vm = new IndexViewModel()
+            //{
+            //    Prod mapper.Map<IndexViewModel>(product)
+            //}
+            //return View("Edit", vm);
+
+            throw new NotImplementedException();
         }
 
         // POST: /<controller>/Create

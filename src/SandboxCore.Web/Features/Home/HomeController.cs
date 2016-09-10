@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using SandboxCore.Web.Resources;
 
-namespace SandboxCore.Web.Controllers
+namespace SandboxCore.Web.Features.Home
 {
     public class HomeController : Controller
     {

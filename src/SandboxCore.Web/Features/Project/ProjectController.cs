@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using SandboxCore.Service.Models;
 using SandboxCore.Queries;
+using SandboxCore.Queries.Project;
 using System.Threading.Tasks;
 using SandboxCore.Commands;
+using System.Collections.Generic;
 
-namespace SandboxCore.Web.Controllers
+namespace SandboxCore.Web.Features.Project
 {
     public class ProjectController : Controller
     {
@@ -23,9 +24,22 @@ namespace SandboxCore.Web.Controllers
         // GET: /<controller>/
         public async Task<IActionResult> Index()
         {
-            var result = await queryDispatcher.Dispatch<Query.GetAllProjects.Query, Query.GetAllProjects.QueryResult>(new Query.GetAllProjects.Query());
-            return View("Index", null);
+            var queryResult = await queryDispatcher.Dispatch<GetAllProjectsQuery, GetAllProjectsQueryResult>(new GetAllProjectsQuery());
+            var vm = this.mapper.Map<IEnumerable<IndexViewModel>>(queryResult.Projects);
+            return View("Index", vm);
         }
+
+        // GET: /<controller>/Details/id
+        public async Task<IActionResult> Details(int id)
+        {
+            var queryResult = await queryDispatcher.Dispatch<GetProjectQuery, GetProjectQueryResult>(new GetProjectQuery()
+            {
+                ProjectId = id
+            });
+
+            return View("Details", queryResult);
+        }
+
 
         // GET: /<controller>/
         public IActionResult Create()
@@ -33,11 +47,11 @@ namespace SandboxCore.Web.Controllers
             return View("Create");
         }
 
-        // POST: /<controller>/
-        [HttpPost]
-        public IActionResult Create(Project project)
-        {
-            return View("Create");
-        }
+        //// POST: /<controller>/
+        //[HttpPost]
+        //public IActionResult Create(Project project)
+        //{
+        //    return View("Create");
+        //}
     }
 }

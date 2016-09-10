@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using SandboxCore.Web.Models.Project;
 
 namespace SandboxCore.Web
 {
@@ -7,7 +6,8 @@ namespace SandboxCore.Web
     {
         public WebAutoMapperProfile()
         {
-            CreateMap<Service.Models.Project, ProjectSummary>();
+            // Projects
+            CreateMap<Queries.GetAllProjects.QueryResult.Project, Features.Project.IndexViewModel>();
         }
     }
 }

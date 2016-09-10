@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SandboxCore.Query.GetAllProductSummaries
+namespace SandboxCore.Queries.Product.GetAllProductSummaries
 {
     public class Result
     {
