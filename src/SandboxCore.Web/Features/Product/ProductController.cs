@@ -7,12 +7,10 @@ namespace SandboxCore.Web.Features.Product
 {
     public class ProductController : Controller
     {
-        private IMapper mapper;
         private IMediator mediator;
 
-        public ProductController(IMapper mapper, IMediator mediator)
+        public ProductController(IMediator mediator)
         {
-            this.mapper = mapper;
             this.mediator = mediator;
         }
 
@@ -37,21 +35,14 @@ namespace SandboxCore.Web.Features.Product
                 return this.View("Create", command);
             }
 
-
             return this.View("Create");
         }
 
         // GET: /<controller>/Edit/1
         public IActionResult Edit(int id)
         {
-            //var product = mediator.Send(new Query.GetProduct.Query() { ProductId = id });
-            //var vm = new IndexViewModel()
-            //{
-            //    Prod mapper.Map<IndexViewModel>(product)
-            //}
-            //return View("Edit", vm);
-
-            throw new NotImplementedException();
+            var result = mediator.Send(new Queries.Product.GetProductForEdit.Query() { ProductId = id });
+            return View("Edit", result);
         }
 
         // POST: /<controller>/Create
@@ -61,11 +52,8 @@ namespace SandboxCore.Web.Features.Product
             {
                 return View(model);
             }
+
             return View("Index");
         }
-
-
-
-
     }
 }

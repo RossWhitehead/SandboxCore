@@ -1,4 +1,4 @@
-﻿namespace SandboxCore.Query.GetProduct
+﻿namespace SandboxCore.Queries.Product.GetProduct
 {
     public class Result
     {

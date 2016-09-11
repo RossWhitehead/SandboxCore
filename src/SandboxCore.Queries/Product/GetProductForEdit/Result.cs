@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SandboxCore.Query.GetProductForEdit
+namespace SandboxCore.Queries.Product.GetProductForEdit
 {
     public class Result
     {

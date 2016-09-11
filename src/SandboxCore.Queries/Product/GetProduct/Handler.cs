@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using MediatR;
 using SandboxCore.Data;
 
-namespace SandboxCore.Query.GetProduct
+namespace SandboxCore.Queries.Product.GetProduct
 {
     public class Handler : IRequestHandler<Query, Result>
     {
