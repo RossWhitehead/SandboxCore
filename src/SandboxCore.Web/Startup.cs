@@ -59,7 +59,7 @@ namespace SandboxCore.Web
                 }).CreateMapper());
 
             var connection = @"Server=(localdb)\mssqllocaldb;Database=SandboxCore;Trusted_Connection=True;";
-            services.AddDbContext<SandboxCoreDbContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<CommandDbContext>(options => options.UseSqlServer(connection));
 
             //
             // Mediator pattern

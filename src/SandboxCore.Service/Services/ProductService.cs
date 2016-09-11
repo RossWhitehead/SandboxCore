@@ -13,10 +13,10 @@ namespace SandboxCore.Service.Services
 {
     public class ProductService : IProductService
     {
-        private SandboxCoreDbContext db;
+        private CommandDbContext db;
         private IMapper mapper;
 
-        public ProductService(SandboxCoreDbContext db, IMapper mapper)
+        public ProductService(CommandDbContext db, IMapper mapper)
         {
             this.db = db;
             this.mapper = mapper;

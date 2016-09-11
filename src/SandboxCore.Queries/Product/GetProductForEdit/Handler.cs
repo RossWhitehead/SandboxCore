@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
 using SandboxCore.Data;
 
-namespace SandboxCore.Query.GetProduct
+namespace SandboxCore.Query.GetProductForEdit
 {
     public class Handler : IRequestHandler<Query, Result>
     {
@@ -15,6 +16,7 @@ namespace SandboxCore.Query.GetProduct
         {
             this.db = db;
         }
+
         public Result Handle(Query query)
         {
             var result = db.Products.Where(p => p.ProductId == query.ProductId)
@@ -25,6 +27,14 @@ namespace SandboxCore.Query.GetProduct
                     ProductDescription = p.ProductDescription,
                     ProductCategoryId = p.ProjectCategory.ProductCategoryId
                 }).First();
+
+            result.ProductCategories = new ReadOnlyCollection<Result.ProductCategory>(
+                db.ProductCategories
+                    .Select(pc => new Result.ProductCategory()
+                    {
+                        ProductCategoryId = pc.ProductCategoryId,
+                        ProductCategoryName = pc.ProductCategoryName
+                    }).ToList());
 
             return result;
         }

@@ -7,7 +7,7 @@ using SandboxCore.Data;
 
 namespace SandboxCore.Data.Migrations
 {
-    [DbContext(typeof(SandboxCoreDbContext))]
+    [DbContext(typeof(CommandDbContext))]
     [Migration("20160822185317_AddLastUpdated")]
     partial class AddLastUpdated
     {

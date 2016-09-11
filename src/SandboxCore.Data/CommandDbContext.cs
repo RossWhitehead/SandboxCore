@@ -7,7 +7,7 @@ using SandboxCore.Data.Models;
 
 namespace SandboxCore.Data
 {
-    public class SandboxCoreDbContext : DbContext
+    public class CommandDbContext : DbContext
     {
         public DbSet<Project> Projects { get; set; }
         public DbSet<WorkItem> WorkItems { get; set; }

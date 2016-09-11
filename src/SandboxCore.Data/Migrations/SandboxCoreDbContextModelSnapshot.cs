@@ -7,7 +7,7 @@ using SandboxCore.Data;
 
 namespace SandboxCore.Data.Migrations
 {
-    [DbContext(typeof(SandboxCoreDbContext))]
+    [DbContext(typeof(CommandDbContext))]
     partial class SandboxCoreDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

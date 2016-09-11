@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MediatR;
 using SandboxCore.Data;
 
-namespace SandboxCore.Queries.Product.GetAllProductSummaries
+namespace SandboxCore.Queries.Product.GetAllProductCategories
 {
     public class Handler : IRequestHandler<Query, Result>
     {
@@ -19,17 +19,15 @@ namespace SandboxCore.Queries.Product.GetAllProductSummaries
 
         public Result Handle(Query message)
         {
-            var summaries = db.Products
-               .Select(p => new Result.ProductSummary()
+            var categories = db.ProductCategories
+               .Select(p => new Result.ProductCategory()
                {
-                   ProductId = p.ProductId,
-                   ProductName = p.ProductName,
-                   ProductDescription = p.ProductDescription,
-                   ProductCategoryName = p.ProjectCategory.ProductCategoryName
+                   ProductCategoryId = p.ProductCategoryId,
+                   ProductCategoryName = p.ProductCategoryName
                }).ToList();
 
             var result = new Result();
-            result.ProductSummaries = new ReadOnlyCollection<Result.ProductSummary>(summaries);
+            result.ProductCategories = new ReadOnlyCollection<Result.ProductCategory>(categories);
 
             return result;
         }

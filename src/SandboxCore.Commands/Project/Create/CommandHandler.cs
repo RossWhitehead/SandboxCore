@@ -9,9 +9,9 @@ namespace SandboxCore.Commands.Project.Create
 {
     public class CommandHandler : ICommandHandler<Command>
     {
-        private SandboxCoreDbContext db;
+        private CommandDbContext db;
 
-        public CommandHandler(SandboxCoreDbContext db)
+        public CommandHandler(CommandDbContext db)
         {
             this.db = db;
         }

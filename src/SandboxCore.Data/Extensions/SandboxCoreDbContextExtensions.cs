@@ -8,7 +8,7 @@ namespace SandboxCore.Data.Extensions
 {
     public static class SandboxCoreDbContextExtensions
     {
-        public static void SeedData(this SandboxCoreDbContext dbContext)
+        public static void SeedData(this CommandDbContext dbContext)
         {
             if (dbContext.Projects.Count() == 0)
             {

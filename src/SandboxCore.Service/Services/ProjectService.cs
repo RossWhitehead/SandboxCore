@@ -12,10 +12,10 @@ namespace SandboxCore.Service.Services
 {
     public class ProjectService : IProjectService
     {
-        private readonly SandboxCoreDbContext db;
+        private readonly CommandDbContext db;
         private readonly IMapper mapper;
 
-        public ProjectService(SandboxCoreDbContext db, IMapper mapper)
+        public ProjectService(CommandDbContext db, IMapper mapper)
         {
             this.db = db;
             this.mapper = mapper;

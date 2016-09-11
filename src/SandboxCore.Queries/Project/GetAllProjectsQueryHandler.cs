@@ -8,9 +8,9 @@ namespace SandboxCore.Queries.Project
 {
     public class GetAllProjectsQueryHandler : IQueryHandler<GetAllProjectsQuery, GetAllProjectsQueryResult>
     {
-        private SandboxCoreDbContext db;
+        private QueryDbContext db;
 
-        public GetAllProjectsQueryHandler(SandboxCoreDbContext db)
+        public GetAllProjectsQueryHandler(QueryDbContext db)
         {
             this.db = db;
         }

@@ -7,7 +7,7 @@ using SandboxCore.Data;
 
 namespace SandboxCore.Data.Migrations
 {
-    [DbContext(typeof(SandboxCoreDbContext))]
+    [DbContext(typeof(CommandDbContext))]
     [Migration("20160725195513_Initial")]
     partial class Initial
     {

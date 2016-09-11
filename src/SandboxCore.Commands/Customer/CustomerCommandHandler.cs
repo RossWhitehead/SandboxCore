@@ -13,9 +13,9 @@ namespace SandboxCore.Command.Customer
         ICommandHandler<ModifyCustomer>,
         ICommandHandler<RemoveCustomer>
     {
-        private SandboxCoreDbContext db;
+        private CommandDbContext db;
 
-        public CustomerCommandHandler(SandboxCoreDbContext db)
+        public CustomerCommandHandler(CommandDbContext db)
         {
             this.db = db;
         }

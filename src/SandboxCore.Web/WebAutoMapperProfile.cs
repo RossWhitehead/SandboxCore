@@ -6,8 +6,6 @@ namespace SandboxCore.Web
     {
         public WebAutoMapperProfile()
         {
-            // Projects
-            CreateMap<Queries.GetAllProjects.QueryResult.Project, Features.Project.IndexViewModel>();
         }
     }
 }

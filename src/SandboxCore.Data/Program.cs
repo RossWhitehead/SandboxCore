@@ -6,7 +6,7 @@ namespace SandboxCore.Data
     {
         public static void Main(string[] args)
         {
-            new SandboxCoreDbContext().SeedData();
+            new CommandDbContext().SeedData();
         }
     }
 }

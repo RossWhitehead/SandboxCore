@@ -6,9 +6,9 @@ namespace SandboxCore.Commands.Product.Create
 {
     public class Handler : RequestHandler<Command>
     {
-        private SandboxCoreDbContext db;
+        private CommandDbContext db;
 
-        public Handler(SandboxCoreDbContext db)
+        public Handler(CommandDbContext db)
         {
             this.db = db;
         }
