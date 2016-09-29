@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SandboxCore.Data;
 
 namespace SandboxCore.Queries.Product.GetProductForEdit
@@ -25,15 +26,15 @@ namespace SandboxCore.Queries.Product.GetProductForEdit
                     ProductId = p.ProductId,
                     ProductName = p.ProductName,
                     ProductDescription = p.ProductDescription,
-                    ProductCategoryId = p.ProjectCategory.ProductCategoryId
+                    ProductCategoryId = p.ProductCategory.ProductCategoryId
                 }).First();
 
-            result.ProductCategories = new ReadOnlyCollection<Result.ProductCategory>(
+            result.ProductCategories = new ReadOnlyCollection<SelectListItem>(
                 db.ProductCategories
-                    .Select(pc => new Result.ProductCategory()
+                    .Select(pc => new SelectListItem()
                     {
-                        ProductCategoryId = pc.ProductCategoryId,
-                        ProductCategoryName = pc.ProductCategoryName
+                        Value = pc.ProductCategoryId.ToString(),
+                        Text = pc.ProductCategoryName
                     }).ToList());
 
             return result;

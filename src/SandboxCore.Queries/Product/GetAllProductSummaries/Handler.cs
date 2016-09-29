@@ -25,7 +25,7 @@ namespace SandboxCore.Queries.Product.GetAllProductSummaries
                    ProductId = p.ProductId,
                    ProductName = p.ProductName,
                    ProductDescription = p.ProductDescription,
-                   ProductCategoryName = p.ProjectCategory.ProductCategoryName
+                   ProductCategoryName = p.ProductCategory.ProductCategoryName
                }).ToList();
 
             var result = new Result();

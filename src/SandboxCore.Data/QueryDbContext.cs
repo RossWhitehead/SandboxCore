@@ -15,10 +15,14 @@ namespace SandboxCore.Data
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Product> Products { get; set; }
 
+        public QueryDbContext()
+        {
+            ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=SandboxCore;Trusted_Connection=True;");
-            this.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
 
         public override int SaveChanges()

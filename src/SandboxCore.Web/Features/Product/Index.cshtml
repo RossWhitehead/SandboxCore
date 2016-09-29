@@ -1,8 +1,8 @@
-﻿@model SandboxCore.Queries.GetAllProductSummaries.Result
+﻿@model SandboxCore.Queries.Product.GetAllProductSummaries.Result
 @{
     ViewBag.Title = "Products";
 }
-<div class="genre">
+<div>
     <h3>
         Products
     </h3>
@@ -11,7 +11,7 @@
         @foreach (var productSummary in Model.ProductSummaries)
         {
             <li class="col-lg-2 col-md-2 col-sm-2 col-xs-4 container">
-                <a asp-controller="Product" asp-action="Details" asp-route-id="@productSummary.ProductId">
+                <a asp-controller="Product" asp-action="Edit" asp-route-id="@productSummary.ProductId">
                     <h5 class="control-label">@productSummary.ProductName</h5>
                 </a>
             </li>

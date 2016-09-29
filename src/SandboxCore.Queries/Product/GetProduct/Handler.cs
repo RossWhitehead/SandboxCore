@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper.QueryableExtensions;
 using MediatR;
 using SandboxCore.Data;
 
@@ -17,16 +18,7 @@ namespace SandboxCore.Queries.Product.GetProduct
         }
         public Result Handle(Query query)
         {
-            var result = db.Products.Where(p => p.ProductId == query.ProductId)
-                .Select(p => new Result()
-                {
-                    ProductId = p.ProductId,
-                    ProductName = p.ProductName,
-                    ProductDescription = p.ProductDescription,
-                    ProductCategoryId = p.ProjectCategory.ProductCategoryId
-                }).First();
-
-            return result;
+            return db.Products.ProjectTo<Result>().First();
         }
     }
 }

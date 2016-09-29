@@ -30,7 +30,7 @@ namespace SandboxCore.Service.Services
                         ProductId = p.ProductId,
                         ProductName = p.ProductName,
                         ProductDescription = p.ProductDescription,
-                        ProductCategoryName = p.ProjectCategory.ProductCategoryName
+                        ProductCategoryName = p.ProductCategory.ProductCategoryName
                     }).ToList();
 
             //var summary = (

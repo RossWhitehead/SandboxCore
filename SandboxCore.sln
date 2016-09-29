@@ -24,6 +24,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SandboxCore.Commands", "src
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SandboxCore.Queries", "src\SandboxCore.Queries\SandboxCore.Queries.xproj", "{6FC8A879-C777-4E0E-9534-7E07060BCEFE}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SandboxCore.Projection.Tests", "SandboxCore.Projection.Tests\SandboxCore.Projection.Tests.xproj", "{CE4A94E6-ED7F-4006-B4CB-2243290A7B83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,10 @@ Global
 		{6FC8A879-C777-4E0E-9534-7E07060BCEFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FC8A879-C777-4E0E-9534-7E07060BCEFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FC8A879-C777-4E0E-9534-7E07060BCEFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE4A94E6-ED7F-4006-B4CB-2243290A7B83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE4A94E6-ED7F-4006-B4CB-2243290A7B83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE4A94E6-ED7F-4006-B4CB-2243290A7B83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE4A94E6-ED7F-4006-B4CB-2243290A7B83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,5 +71,6 @@ Global
 		{4D0BDBB6-EB74-406A-96AC-CBB49CE445F3} = {4F605E44-3E32-4EE2-8C86-440F6767CF05}
 		{80301FAE-7511-4F1C-9ECD-0AC27CAE502B} = {4F605E44-3E32-4EE2-8C86-440F6767CF05}
 		{6FC8A879-C777-4E0E-9534-7E07060BCEFE} = {4F605E44-3E32-4EE2-8C86-440F6767CF05}
+		{CE4A94E6-ED7F-4006-B4CB-2243290A7B83} = {3C9A4E73-47F6-490A-B18E-EEF1EEDA68AE}
 	EndGlobalSection
 EndGlobal

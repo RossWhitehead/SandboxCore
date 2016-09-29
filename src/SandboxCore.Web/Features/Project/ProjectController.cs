@@ -8,15 +8,13 @@ using System.Collections.Generic;
 
 namespace SandboxCore.Web.Features.Project
 {
-    public class ProjectController : Controller
+    public class ProjectController : BaseController
     {
-        private IMapper mapper;
         private IQueryDispatcher queryDispatcher;
         private ICommandDispatcher commandDispatcher;
 
-        public ProjectController(IMapper mapper, IQueryDispatcher queryDispatcher, ICommandDispatcher commandDispatcher)
+        public ProjectController(IMapper mapper, IQueryDispatcher queryDispatcher, ICommandDispatcher commandDispatcher) : base(mapper)
         {
-            this.mapper = mapper;
             this.queryDispatcher = queryDispatcher;
             this.commandDispatcher = commandDispatcher;
         }
@@ -25,8 +23,7 @@ namespace SandboxCore.Web.Features.Project
         public async Task<IActionResult> Index()
         {
             var queryResult = await queryDispatcher.Dispatch<GetAllProjectsQuery, GetAllProjectsQueryResult>(new GetAllProjectsQuery());
-            var vm = this.mapper.Map<IEnumerable<IndexViewModel>>(queryResult.Projects);
-            return View("Index", vm);
+            return AutoMapView<IndexViewModel>(View("Index", queryResult));
         }
 
         // GET: /<controller>/Details/id

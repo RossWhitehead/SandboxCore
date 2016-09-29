@@ -28,6 +28,6 @@ namespace SandboxCore.Data.Models
         public int ProductCategoryId { get; set; }
 
         // Navigation
-        public ProductCategory ProjectCategory { get; set; }
+        public ProductCategory ProductCategory { get; set; }
     }
 }

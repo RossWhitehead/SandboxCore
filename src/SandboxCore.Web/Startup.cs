@@ -51,15 +51,18 @@ namespace SandboxCore.Web
 
             services.AddLocalization(options => options.ResourcesPath = "Resources");
 
-            services.AddSingleton<IMapper>(
-                new MapperConfiguration(cfg =>
+            var mapper = new MapperConfiguration(cfg =>
+                cfg.AddProfiles(new[]
                 {
-                    cfg.AddProfile<WebAutoMapperProfile>();
-                    cfg.AddProfile<ServiceAutoMapperProfile>();
-                }).CreateMapper());
+                    "SandboxCore.Queries",
+                    "SandboxCore.Commands"
+                })).CreateMapper();
+
+            services.AddSingleton<IMapper>(mapper);
 
             var connection = @"Server=(localdb)\mssqllocaldb;Database=SandboxCore;Trusted_Connection=True;";
             services.AddDbContext<CommandDbContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<QueryDbContext>(options => options.UseSqlServer(connection));
 
             //
             // Mediator pattern

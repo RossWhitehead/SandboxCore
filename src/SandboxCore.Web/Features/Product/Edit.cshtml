@@ -1,0 +1,37 @@
+﻿@model SandboxCore.Queries.Product.GetProductForEdit.Result
+@{
+    ViewBag.Title = "Edit Product";
+}
+<form asp-controller="Product" asp-action="Edit" method="post" asp-antiforgery="true">
+    <div class="row">
+        <div class="col-md-2">
+            <input asp-for="ProductId" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label asp-for="ProductName"></label>
+        </div>
+        <div class="col-md-4">
+            <input asp-for="ProductName" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label asp-for="ProductDescription"></label>
+        </div>
+        <div class="col-md-4">
+            <textarea asp-for="ProductDescription"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label asp-for="ProductCategoryId"></label>
+        </div>
+        <div class="col-md-4">
+            <select asp-for="ProductCategoryId" asp-items="Model.ProductCategories"></select> 
+        </div>
+    </div>
+
+    
+</form>

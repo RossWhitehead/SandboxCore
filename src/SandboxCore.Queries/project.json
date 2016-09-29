@@ -4,6 +4,8 @@
   "dependencies": {
     "AutoMapper": "5.1.1",
     "MediatR": "2.1.0",
+    "Microsoft.AspNetCore.Mvc.DataAnnotations": "1.0.0",
+    "Microsoft.AspNetCore.Mvc.ViewFeatures": "1.0.0",
     "NETStandard.Library": "1.6.0",
     "SandboxCore.Data": "1.0.0-*"
   },

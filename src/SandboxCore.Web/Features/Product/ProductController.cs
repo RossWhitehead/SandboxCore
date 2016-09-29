@@ -46,6 +46,7 @@ namespace SandboxCore.Web.Features.Product
         }
 
         // POST: /<controller>/Create
+        [HttpPost]
         public IActionResult Edit(Commands.Product.Create.Command model)
         {
             if (!ModelState.IsValid)
