@@ -2,21 +2,25 @@
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace SandboxCore.Web.Features.Product
 {
     public class ProductController : Controller
     {
         private IMediator mediator;
+        private ILogger<ProductController> logger;
 
-        public ProductController(IMediator mediator)
+        public ProductController(IMediator mediator, ILogger<ProductController> logger)
         {
             this.mediator = mediator;
+            this.logger = logger;
         }
 
         // GET: /<controller>/
         public IActionResult Index()
         {
+            logger.LogInformation(LoggingEvents.ViewList, "View List");
             var result = this.mediator.Send(new Queries.Product.GetAllProductSummaries.Query());
             return View("Index", result);
         }

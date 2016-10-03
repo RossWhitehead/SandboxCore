@@ -33,7 +33,9 @@
     "Scrutor": "1.8.0",
     "SandboxCore.Data": "1.0.0-*",
     "FluentValidation": "6.4.0-beta3",
-    "FluentValidation.AspNetCore": "6.4.0-beta3"
+    "FluentValidation.AspNetCore": "6.4.0-beta3",
+    "NLog": "4.4.0-betaV15",
+    "NLog.Extensions.Logging": "1.0.0-rtm-alpha4"
   },
 
   "tools": {
@@ -68,7 +70,8 @@
       "wwwroot",
       "Features",
       "appsettings.json",
-      "web.config"
+      "web.config",
+      "nlog.config"
     ]
   },
 

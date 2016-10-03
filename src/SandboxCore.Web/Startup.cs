@@ -11,11 +11,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using NLog.Extensions.Logging;
 using SandboxCore.Commands;
 using SandboxCore.Commands.Product.Create;
 using SandboxCore.Data;
 using SandboxCore.Queries;
-using SandboxCore.Service;
 using Scrutor;
 
 namespace SandboxCore.Web
@@ -29,6 +29,7 @@ namespace SandboxCore.Web
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
+
             Configuration = builder.Build();
         }
 
@@ -88,8 +89,8 @@ namespace SandboxCore.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
+            loggerFactory.AddNLog();
+            env.ConfigureNLog("nlog.config");
 
             if (env.IsDevelopment())
             {
