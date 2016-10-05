@@ -38,6 +38,7 @@ namespace SandboxCore.Web.Features.Home
 
         public IActionResult Error()
         {
+            throw new System.Exception("Test exception");
             return View();
         }
     }

@@ -22,6 +22,8 @@ namespace SandboxCore.Web
 {
     public class Startup
     {
+        private ILoggerFactory loggerFactory;
+
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -38,8 +40,14 @@ namespace SandboxCore.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            this.loggerFactory = new LoggerFactory();
+            loggerFactory.AddNLog();
+
+            services.AddSingleton<ILoggerFactory>(loggerFactory);
+
             // Add framework services.
             services.AddMvc()
+                    .AddMvcOptions(o => { o.Filters.Add(new GlobalExceptionFilter(loggerFactory)); })
                     .AddViewLocalization()
                     .AddDataAnnotationsLocalization()
                     .AddFluentValidation(cfg => { cfg.RegisterValidatorsFromAssemblyContaining<ICommand>(); });
@@ -87,11 +95,8 @@ namespace SandboxCore.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            loggerFactory.AddNLog();
-            env.ConfigureNLog("nlog.config");
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -125,6 +130,8 @@ namespace SandboxCore.Web
                 // UI strings that we have localized.
                 SupportedUICultures = supportedCultures
             });
+
+            env.ConfigureNLog("nlog.config");
         }
     }
 }

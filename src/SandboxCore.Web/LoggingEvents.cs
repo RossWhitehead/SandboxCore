@@ -7,6 +7,7 @@ namespace SandboxCore.Web
 {
     public class LoggingEvents
     {
-        public const int ViewList = 1000;
+        public const int Exception = 1000;
+        public const int ViewList = 1001;
     }
 }
